@@ -20,6 +20,7 @@ public class jwtContorller {
 	
 	@GetMapping("/main")
 	public String main() {
+		System.out.println("main");
 		return "유효한 토큰 ㅇㅈ";
 	}
 }
