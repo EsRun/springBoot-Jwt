@@ -16,11 +16,10 @@ public class interceptor implements HandlerInterceptor{
 		System.out.println("getHeader= "+request.getHeader("Authorization"));
 		// 헤더에서 가져온 토큰 유효성 검사
 		String token = request.getHeader("Authorization");
-
-		System.out.println(jwtProvider.validateToken(token));
+		if(token != null) System.out.println("if true");
+		else System.out.println("if false");
 		
-		// 로그인 유지 코드 작성
-
+		System.out.println("validate= "+jwtProvider.validateToken(token));
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 }
