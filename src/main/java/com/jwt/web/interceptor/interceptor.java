@@ -13,10 +13,13 @@ public class interceptor implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		System.out.println(request.getHeader("Authorization"));
+		System.out.println("getHeader= "+request.getHeader("Authorization"));
 		// 헤더에서 가져온 토큰 유효성 검사
 		String token = request.getHeader("Authorization");
-		System.out.println(jwtProvider.validateToken(token));
+		if(token != null) System.out.println("if true");
+		else System.out.println("if false");
+		
+		System.out.println("validate= "+jwtProvider.validateToken(token));
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 }
