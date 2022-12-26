@@ -18,15 +18,13 @@ public class interceptor implements HandlerInterceptor{
 		// 헤더에서 가져온 토큰 유효성 검사
 		String token = request.getHeader("Authorization");
 		if(token != null) {
-			System.out.println("if true");
+			System.out.println("토큰 보유");
+			return jwtProvider.validateToken(token);
 		}
 		else {
-			System.out.println("if false");
+			System.out.println("토큰 없어");
 			return false;
 		}
-		
-		System.out.println("validate= "+jwtProvider.validateToken(token));
-		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,

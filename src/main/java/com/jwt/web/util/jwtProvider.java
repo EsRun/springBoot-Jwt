@@ -47,6 +47,7 @@ public class jwtProvider {
 	public static boolean validateToken(String token) {
 		try {
 			Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token);
+			System.out.println("유효한 토큰");
 			return true;
 		}
 		catch (SignatureException e){
