@@ -11,7 +11,7 @@ public class jwtContorller {
 	
 	@GetMapping("/auth")
 	public String Auth(@RequestParam String userId) {
-		System.out.println("ㅇㅇ");
+		System.out.println("Auth Controller");
 		if(userId.equals("admin")) {
 			String token = jwtProvider.generateToken(userId);
 			return token;
