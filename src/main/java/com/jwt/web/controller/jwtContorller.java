@@ -24,4 +24,9 @@ public class jwtContorller {
 		System.out.println("main");
 		return "유효한 토큰 ㅇㅈ";
 	}
+	
+	@GetMapping("/join")
+	public String Join() {
+		return "회원가입";
+	}
 }
