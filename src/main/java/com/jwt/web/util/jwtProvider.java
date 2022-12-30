@@ -27,8 +27,8 @@ public class jwtProvider {
 				.setSubject("title")
 				.setIssuedAt(new Date())
 				.setExpiration(expiryDate)
-				.claim("userId", "admin")
-				.claim("userName", "ㅇㅇㅇ")
+				.claim("userId", userId)
+				.claim("userName", userId)
 				.signWith(SignatureAlgorithm.HS512, JWT_SECRET)
 				.compact();
 	}
