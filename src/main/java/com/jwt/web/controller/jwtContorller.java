@@ -12,6 +12,7 @@ public class jwtContorller {
 	@GetMapping("/auth")
 	public String Auth(@RequestParam String userId) {
 		System.out.println("Auth Controller");
+		// access & refresh 토큰 발행하는 코드 필요
 		if(userId.equals("admin")) {
 			String token = jwtProvider.generateToken(userId);
 			return token;
